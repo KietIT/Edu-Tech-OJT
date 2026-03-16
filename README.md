@@ -7,9 +7,9 @@ Hệ thống phân tích thời khóa biểu và tạo lịch học bổ sung ch
 ```
 Frontend (React/Next.js)          Backend (FastAPI)           Analyzer Engine
 ┌──────────────────┐         ┌──────────────────┐         ┌──────────────────┐
-│  Form nhập liệu  │  POST   │  /api/analyze     │  call   │ TimetableAnalyzer│
-│  Hiển thị lịch   │ ──────> │  Validate input   │ ──────> │ Deterministic    │
-│  học bổ sung      │ <────── │  Return JSON      │ <────── │ (no API call)    │
+│  Form nhập liệu  │  POST   │  /api/analyze    │  call   │ TimetableAnalyzer│
+│  Hiển thị lịch   │ ──────> │  Validate input  │ ──────> │ Deterministic    │
+│  học bổ sung     │ <────── │  Return JSON     │ <────── │ (no API call)    │
 └──────────────────┘  JSON   └──────────────────┘  dict   └──────────────────┘
 ```
 
