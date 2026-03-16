@@ -135,7 +135,6 @@ async def analyze(data: dict):
 | 5 | `report_card` | `Dict` | No | Bảng điểm học kỳ từ trường |
 | 6 | `study_habits` | `Dict` | No | Thói quen học tập & khung giờ rảnh |
 
-**Lưu ý quan trọng**: Tất cả điểm số trên **thang 10** (hệ thống Việt Nam). Không dùng thang 100.
 
 ### Output: `AnalysisResult`
 
