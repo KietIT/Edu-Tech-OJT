@@ -1,0 +1,197 @@
+{
+  "student_id": "STU_2024_001",
+  "generated_at": "2024-10-15T10:30:00Z",
+  "student_profile": {
+    "student_id": "STU_2024_001",
+    "name": "Nguyen Van A",
+    "date_of_birth": "2008-05-15",
+    "grade_level": "11",
+    "exam_block": "A00",
+    "career_goal": {
+      "field": "AI",
+      "target_university": "Bach khoa Ha Noi",
+      "target_score": 27.0
+    },
+    "current_skills": ["Python co ban", "Tieng Anh B1", "Excel"],
+    "available_study_hours_per_week": 25.0
+  },
+  "academic_data": {
+    "test_results": [
+      {
+        "test_id": "test_001",
+        "subject": "toan",
+        "topic_id": "toan_01",
+        "topic_name": "Ham so va do thi",
+        "score": 92,
+        "max_score": 100,
+        "difficulty": "medium",
+        "test_date": "2024-09-15",
+        "test_type": "quiz"
+      },
+      {
+        "test_id": "test_002",
+        "subject": "ly",
+        "topic_id": "ly_03",
+        "topic_name": "Dien hoc",
+        "score": 55,
+        "max_score": 100,
+        "difficulty": "medium",
+        "test_date": "2024-09-20",
+        "test_type": "quiz"
+      },
+      {
+        "test_id": "test_003",
+        "subject": "hoa",
+        "topic_id": "hoa_04",
+        "topic_name": "Hoa hoc huu co",
+        "score": 58,
+        "max_score": 100,
+        "difficulty": "hard",
+        "test_date": "2024-09-25",
+        "test_type": "midterm"
+      },
+      {
+        "test_id": "test_004",
+        "subject": "toan",
+        "topic_id": null,
+        "topic_name": "Tong hop",
+        "score": 85,
+        "max_score": 100,
+        "difficulty": "hard",
+        "test_date": "2024-10-01",
+        "test_type": "midterm"
+      }
+    ],
+    "subject_scores": [
+      {
+        "subject": "toan",
+        "average_score": 88.0,
+        "topic_scores": [
+          {"topic_id": "toan_01", "topic_name": "Ham so va do thi", "score": 92, "is_core_topic": true, "exam_frequency": 0.9},
+          {"topic_id": "toan_02", "topic_name": "Phuong trinh va bat phuong trinh", "score": 88, "is_core_topic": true, "exam_frequency": 0.85},
+          {"topic_id": "toan_03", "topic_name": "Luong giac", "score": 85, "is_core_topic": true, "exam_frequency": 0.8},
+          {"topic_id": "toan_04", "topic_name": "Hinh hoc phang", "score": 78, "is_core_topic": true, "exam_frequency": 0.7},
+          {"topic_id": "toan_05", "topic_name": "Xac suat thong ke", "score": 90, "is_core_topic": false, "exam_frequency": 0.6},
+          {"topic_id": "toan_06", "topic_name": "Day so cap so cong, nhan", "score": 95, "is_core_topic": true, "exam_frequency": 0.75}
+        ],
+        "test_count": 12
+      },
+      {
+        "subject": "ly",
+        "average_score": 64.4,
+        "topic_scores": [
+          {"topic_id": "ly_01", "topic_name": "Co hoc", "score": 65, "is_core_topic": true, "exam_frequency": 0.85},
+          {"topic_id": "ly_02", "topic_name": "Nhiet hoc", "score": 70, "is_core_topic": true, "exam_frequency": 0.7},
+          {"topic_id": "ly_03", "topic_name": "Dien hoc", "score": 55, "is_core_topic": true, "exam_frequency": 0.9},
+          {"topic_id": "ly_04", "topic_name": "Quang hoc", "score": 72, "is_core_topic": true, "exam_frequency": 0.65},
+          {"topic_id": "ly_05", "topic_name": "Song co va song dien tu", "score": 60, "is_core_topic": true, "exam_frequency": 0.8}
+        ],
+        "test_count": 10
+      },
+      {
+        "subject": "hoa",
+        "average_score": 66.6,
+        "topic_scores": [
+          {"topic_id": "hoa_01", "topic_name": "Cau tao nguyen tu", "score": 75, "is_core_topic": true, "exam_frequency": 0.7},
+          {"topic_id": "hoa_02", "topic_name": "Lien ket hoa hoc", "score": 68, "is_core_topic": true, "exam_frequency": 0.75},
+          {"topic_id": "hoa_03", "topic_name": "Phan ung hoa hoc", "score": 62, "is_core_topic": true, "exam_frequency": 0.9},
+          {"topic_id": "hoa_04", "topic_name": "Hoa hoc huu co", "score": 58, "is_core_topic": true, "exam_frequency": 0.85},
+          {"topic_id": "hoa_05", "topic_name": "Dien phan", "score": 70, "is_core_topic": true, "exam_frequency": 0.6}
+        ],
+        "test_count": 10
+      },
+      {
+        "subject": "van",
+        "average_score": 75.7,
+        "topic_scores": [
+          {"topic_id": "van_01", "topic_name": "Nghi luan xa hoi", "score": 75, "is_core_topic": true, "exam_frequency": 0.8},
+          {"topic_id": "van_02", "topic_name": "Nghi luan van hoc", "score": 72, "is_core_topic": true, "exam_frequency": 0.9},
+          {"topic_id": "van_03", "topic_name": "Doc hieu", "score": 80, "is_core_topic": true, "exam_frequency": 0.7}
+        ],
+        "test_count": 8
+      },
+      {
+        "subject": "anh",
+        "average_score": 76.3,
+        "topic_scores": [
+          {"topic_id": "anh_01", "topic_name": "Grammar", "score": 78, "is_core_topic": true, "exam_frequency": 0.8},
+          {"topic_id": "anh_02", "topic_name": "Vocabulary", "score": 82, "is_core_topic": true, "exam_frequency": 0.85},
+          {"topic_id": "anh_03", "topic_name": "Reading", "score": 75, "is_core_topic": true, "exam_frequency": 0.9},
+          {"topic_id": "anh_04", "topic_name": "Listening", "score": 70, "is_core_topic": false, "exam_frequency": 0.5}
+        ],
+        "test_count": 10
+      }
+    ],
+    "gpa": 7.8,
+    "class_rank": 8,
+    "total_students_in_class": 45
+  },
+  "psychology_data": {
+    "mslq": {
+      "intrinsic_goal_orientation": 5.8,
+      "extrinsic_goal_orientation": 4.5,
+      "task_value": 5.5,
+      "control_of_learning_beliefs": 5.0,
+      "self_efficacy": 4.2,
+      "test_anxiety": 5.5,
+      "rehearsal": 4.0,
+      "elaboration": 5.2,
+      "organization": 4.8,
+      "critical_thinking": 5.0,
+      "metacognitive_self_regulation": 4.5,
+      "time_and_study_environment": 3.8,
+      "effort_regulation": 4.5,
+      "peer_learning": 4.0,
+      "help_seeking": 3.5
+    },
+    "big_five": {
+      "openness": 0.75,
+      "conscientiousness": 0.55,
+      "extraversion": 0.40,
+      "agreeableness": 0.70,
+      "neuroticism": 0.55
+    },
+    "vark": {
+      "visual": 75,
+      "auditory": 45,
+      "reading_writing": 60,
+      "kinesthetic": 55,
+      "dominant_style": "visual"
+    },
+    "learning_behavior": {
+      "learning_motivation_score": 5.2,
+      "intrinsic_motivation": 5.8,
+      "extrinsic_motivation": 4.5,
+      "task_value": 5.5,
+      "self_efficacy": 4.2,
+      "learning_strategies_score": 4.7,
+      "rehearsal_strategies": 4.0,
+      "elaboration_strategies": 5.2,
+      "critical_thinking": 5.0,
+      "metacognitive_regulation": 4.5,
+      "study_habits_score": 4.0,
+      "daily_study_routine": 3.8,
+      "time_management": 3.5,
+      "study_environment": 4.8
+    },
+    "mental_health": {
+      "total_score": 180,
+      "normalized_score": 108,
+      "risk_level": "medium",
+      "self_perception": 30,
+      "social_initiative": 25,
+      "wishes": 35,
+      "emotional_control": 30,
+      "morning_mood": 20,
+      "leisure_activities": 25,
+      "family_gatherings": 30,
+      "self_harm_thoughts": 5,
+      "favorite_quote": 25,
+      "self_assessment": 25,
+      "needs_professional_support": false
+    },
+    "learning_style": "visual",
+    "support_level_needed": "normal",
+    "recommended_workload": "medium"
+  }
+}
