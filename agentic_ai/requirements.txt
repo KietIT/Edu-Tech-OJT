@@ -4,16 +4,6 @@
 pydantic>=2.0.0
 pydantic-settings>=2.0.0
 
-# Async support
-asyncio-throttle>=1.0.0
-
 # API (optional - for FastAPI integration)
 fastapi>=0.100.0
 uvicorn>=0.20.0
-
-# LLM Integration (optional - for LLM-based agents)
-anthropic>=0.20.0
-openai>=1.0.0
-
-# Utilities
-python-dotenv>=1.0.0

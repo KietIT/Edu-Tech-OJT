@@ -13,7 +13,7 @@ Frontend (React/Next.js)          Backend (FastAPI)           Analyzer Engine
 └──────────────────┘  JSON   └──────────────────┘  dict   └──────────────────┘
 ```
 
-**Quan trọng**: Core engine hiện tại hoạt động **hoàn toàn deterministic** (không gọi LLM API). Trường `ai_summary` trong output được reserved cho tính năng tương lai.
+**Quan trọng**: Core engine hiện tại hoạt động **hoàn toàn deterministic** (không gọi LLM API).
 
 ## Cấu trúc thư mục
 
@@ -22,7 +22,6 @@ agentic_ai/
 ├── __init__.py              # Package exports: generate_learning_path, generate_learning_path_from_dict
 ├── main.py                  # Entry point chính - 2 hàm API
 ├── config.py                # Cấu hình: thresholds, scoring settings
-├── llm_client.py            # Claude API client (singleton, chưa dùng trong v2)
 ├── show_result.py           # Hiển thị kết quả trên terminal
 ├── run_test.py              # Script test với mock data
 ├── requirements.txt         # Python dependencies
@@ -66,16 +65,15 @@ source .venv/bin/activate  # Linux/Mac
 pip install -r agentic_ai/requirements.txt
 ```
 
-### Environment Variables
+### Environment Variables (Optional)
 
-Tạo file `agentic_ai/.env`:
+Có thể tạo file `agentic_ai/.env` để override ngưỡng:
 
 ```env
-# Chưa cần thiết cho v2 (core engine không gọi API)
-# Chỉ cần khi enable tính năng ai_summary trong tương lai
-ANTHROPIC_API_KEY=sk-ant-...
-LLM_PROVIDER=anthropic
-LLM_MODEL=claude-sonnet-4-20250514
+WEAK_TOPIC_THRESHOLD=8.0
+MINIMUM_SUBJECT_SCORE=8.0
+LOW_THRESHOLD=3.0
+HIGH_THRESHOLD=5.0
 ```
 
 ## Cách sử dụng
@@ -317,9 +315,9 @@ async def analyze(data: dict):
 - Slot "trung bình" dùng cho ôn tập + bài tập nhẹ
 - Bỏ qua slot < 30 phút
 
-### 3. AI Summary (tương lai)
+### 3. AI Summary
 
-Trường `ai_summary` hiện tại luôn trả `null`. Code cho tính năng này đã viết sẵn nhưng bị comment out trong `timetable_analyzer.py`. Khi enable, sẽ cần `ANTHROPIC_API_KEY` trong `.env`.
+Trường `ai_summary` trong output hiện được giữ ở `null` để tương thích schema.
 
 ## Thang điểm & Config
 
@@ -348,7 +346,7 @@ Tất cả input đã được validate bởi Pydantic schemas. Nếu data sai f
 
 - Thêm subjects mới: edit `Subject` enum trong `schemas/student.py`
 - Thay đổi threshold: edit `config.py`
-- Enable AI summary: uncomment code trong `timetable_analyzer.py`, set `ANTHROPIC_API_KEY`
+- Tinh chỉnh logic phân bổ slot: edit `_build_weekly_schedule()` trong `agents/timetable_analyzer.py`
 
 ## Cho team Frontend
 
@@ -392,5 +390,4 @@ from agentic_ai.test_data.mock_student import (
 
 - **Python** 3.11+
 - **Pydantic** v2 - Data validation & schemas
-- **Anthropic SDK** - Claude API (reserved for future AI summary)
 - **FastAPI** - Recommended for API layer (not included, BE team implements)

@@ -20,7 +20,6 @@ from ..schemas.paths import WeeklyStudySchedule, ScheduleEntry
 from ..schemas.student import get_subject_display_name
 from ..schemas.output import AnalysisResult, WeakSubjectInfo
 from ..config import settings
-from ..llm_client import get_llm_client
 
 logger = logging.getLogger(__name__)
 
@@ -33,16 +32,13 @@ class TimetableAnalyzer:
     1. Identify weak subjects from report_card + academic_data (deterministic)
     2. Extract free time slots from study_habits (already excludes school hours)
     3. Build a weekly supplementary study schedule (deterministic)
-    4. [FUTURE] Optional single API call for AI-generated study tips
 
-    All core logic is deterministic — no API call is required for schedule generation.
+    All core logic is deterministic.
     """
 
     def __init__(self):
         self.name = "TimetableAnalyzer"
         self.logs: List[str] = []
-        # TODO: Uncomment when AI summary feature is enabled
-        # self.llm = get_llm_client()
 
     def log(self, message: str) -> None:
         """Add a log entry"""
@@ -63,7 +59,7 @@ class TimetableAnalyzer:
             Dict (serialized AnalysisResult) containing:
             - weekly_study_schedule: the supplementary study timetable
             - weak_subjects_analysis: list of identified weak subjects
-            - ai_summary: None (reserved for future API call)
+            - ai_summary: always None in deterministic mode
             - processing metadata
         """
         self.logs = []
@@ -88,9 +84,7 @@ class TimetableAnalyzer:
         elif not weak_subjects:
             self.log("No weak subjects found — no supplementary schedule needed")
 
-        # Step 3: AI summary (FUTURE — currently disabled)
-        # TODO: Enable this when AI summary feature is ready
-        # ai_summary = self._generate_ai_summary(weak_subjects, weekly_schedule, context)
+        # Step 3: AI summary placeholder (deterministic mode)
         ai_summary = None
 
         # Build result
@@ -361,55 +355,3 @@ class TimetableAnalyzer:
             weak_subjects_covered=[ws["subject"] for ws in sorted_weak],
             notes=notes,
         )
-
-    # ──────────────────────────────────────────────
-    # Step 3: AI Summary (FUTURE — currently disabled)
-    # ──────────────────────────────────────────────
-
-    # TODO: Enable this method when AI summary feature is ready.
-    # This will make a single API call to generate a natural-language
-    # analysis summary and personalized study tips for the student.
-    #
-    # def _generate_ai_summary(
-    #     self,
-    #     weak_subjects: List[Dict],
-    #     schedule: Optional[WeeklyStudySchedule],
-    #     context: AgentContext,
-    # ) -> Optional[str]:
-    #     """
-    #     Generate a brief AI-powered summary of the analysis.
-    #
-    #     This is the ONLY API call in the entire system.
-    #     If the LLM is not available, returns None gracefully.
-    #     """
-    #     if not self.llm.is_available:
-    #         return None
-    #
-    #     # Build a concise prompt with the analysis results
-    #     subjects_text = ", ".join(
-    #         f"{ws['subject']} ({ws['average_score']:.1f}/10)"
-    #         for ws in weak_subjects[:5]
-    #     )
-    #
-    #     schedule_text = ""
-    #     if schedule:
-    #         schedule_text = f"\nLịch học bổ sung: {len(schedule.entries)} buổi/tuần, "
-    #         schedule_text += f"tổng {schedule.total_supplementary_hours}h/tuần"
-    #
-    #     prompt = f"""Hãy viết một đoạn tóm tắt ngắn (tối đa 150 từ) cho học sinh THPT.
-    #
-    # HỌC SINH: {context.student_profile.name}, lớp {context.student_profile.grade_level.value}
-    # CÁC MÔN CẦN CẢI THIỆN: {subjects_text}
-    # {schedule_text}
-    #
-    # YÊU CẦU:
-    # 1. Viết bằng tiếng Việt có dấu
-    # 2. Tóm tắt tình trạng học tập
-    # 3. Đưa ra 2-3 lời khuyên cụ thể
-    # 4. Giọng văn khích lệ, tích cực
-    # """
-    #
-    #     system = "Bạn là chuyên gia tư vấn học tập THPT Việt Nam. Viết ngắn gọn, tích cực."
-    #
-    #     response = self.llm.generate_structured(prompt, system, max_tokens=500)
-    #     return response
